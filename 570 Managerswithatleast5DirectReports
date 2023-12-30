@@ -53,4 +53,12 @@ Output:
 
 Solution ::
 
+select name from employee
+where id in  (
+select e.id from employee e 
+join employee p on e.id = p.managerId 
+group by p.managerId
+having count(*)>=5) ;
+
+
 
